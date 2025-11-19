@@ -46,9 +46,24 @@ export const Attractions: React.FC = () => {
     return (
         <section id="attractions" className="py-32 bg-stone-950 px-6">
             <div className="max-w-7xl mx-auto">
+                
+                {/* Standardized Header */}
                 <div className="mb-24 border-b border-stone-800 pb-8 flex flex-col md:flex-row justify-between items-end gap-6">
                     <div>
-                        <h2 className="text-5xl md:text-6xl font-serif text-stone-200">Experiences</h2>
+                        <motion.span 
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            className="text-emerald-500 text-[10px] tracking-[0.3em] uppercase block mb-4 font-bold"
+                        >
+                            EXPERIENCES
+                        </motion.span>
+                        <motion.h2 
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            className="text-4xl md:text-6xl font-serif text-stone-200"
+                        >
+                            Nearby Journeys
+                        </motion.h2>
                         <p className="text-stone-500 mt-4 max-w-md">
                             Mysuru and Coorg offer a tapestry of culture and nature. We are centrally located to the best of both worlds.
                         </p>

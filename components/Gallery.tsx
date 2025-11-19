@@ -8,34 +8,34 @@ const panels = [
     {
         id: 'coffee',
         title: 'The Plantation',
-        subtitle: 'Organic Heritage',
-        description: 'Walk through acres of shade-grown Arabica and Robusta. The air here is thick with the scent of roasting beans and damp earth.',
+        subtitle: 'Coffee & Pepper',
+        description: 'Walk through acres of shade-grown Arabica and Robusta intertwined with pepper vines. The air here is thick with the scent of damp earth and greenery.',
         icon: Coffee,
-        image: 'https://images.unsplash.com/photo-1611558428687-5e63cb023d67?q=80&w=1974&auto=format&fit=crop'
+        image: 'https://images.unsplash.com/photo-1529313722575-561580e128bb?q=80&w=2070&auto=format&fit=crop'
     },
     {
         id: 'areca',
         title: 'The Grove',
-        subtitle: 'Areca & Pepper',
-        description: 'Tall palms sway in the Coorg breeze, creating a natural cathedral of green. This is where the silence lives.',
+        subtitle: 'Areca Palms',
+        description: 'Tall Areca palms sway in the breeze, creating a natural cathedral of green. A signature of the region, offering shade and serenity.',
         icon: Trees,
-        image: 'https://images.unsplash.com/photo-1596825205489-97169f8ec8d4?q=80&w=2070&auto=format&fit=crop'
+        image: 'https://images.unsplash.com/photo-1623227773133-7f508f77594d?q=80&w=2070&auto=format&fit=crop'
     },
     {
         id: 'mist',
         title: 'The Mist',
-        subtitle: 'Morning Rituals',
-        description: 'Wake up before the sun to watch the fog roll over the hills. A daily spectacle that turns the world soft and white.',
+        subtitle: 'Morning Views',
+        description: 'Wake up before the sun to watch the fog roll over the hills. The blue sheet roofs of nearby sheds peek through the white veil.',
         icon: CloudFog,
-        image: 'https://images.unsplash.com/photo-1445543949571-ffc3e0e2f55e?q=80&w=2069&auto=format&fit=crop'
+        image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=2000&auto=format&fit=crop'
     },
     {
         id: 'fire',
         title: 'The Warmth',
-        subtitle: 'Evenings by Fire',
-        description: 'As night falls, gather around the fire camp. Stories are shared, marshmallows are roasted, and memories are forged.',
+        subtitle: 'Fire Camp',
+        description: 'As night falls, we light the bonfire. Gather around the flames under the starlit sky for warmth, stories, and roasted delights.',
         icon: Flame,
-        image: 'https://images.unsplash.com/photo-1470246973918-29a53221c195?q=80&w=2070&auto=format&fit=crop'
+        image: 'https://images.unsplash.com/photo-1520483691742-bada60a1edd3?q=80&w=2070&auto=format&fit=crop'
     }
 ];
 
@@ -47,7 +47,7 @@ export const Gallery: React.FC = () => {
         <section id="gallery" className="py-32 bg-stone-950 relative overflow-hidden">
             <div className="max-w-[90rem] mx-auto px-6">
                 
-                {/* Header with Video Trigger */}
+                {/* Standardized Header */}
                 <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
                     <div>
                         <motion.span 
@@ -65,6 +65,14 @@ export const Gallery: React.FC = () => {
                         >
                             Living off the Land
                         </motion.h2>
+                        <motion.p 
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2 }}
+                            className="text-stone-400 mt-4 max-w-md font-light"
+                        >
+                            From the swaying Areca palms to the warmth of the evening bonfire.
+                        </motion.p>
                     </div>
                     <Magnetic>
                         <button 

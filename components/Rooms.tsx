@@ -2,39 +2,39 @@
 import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { Room } from '../types';
-import { X, Wifi, Coffee, Tv, Bed, User, Sparkles, ArrowRight } from 'lucide-react';
+import { X, Wifi, Coffee, Tv, Bed, User, Sparkles, ArrowRight, Flame, Wind } from 'lucide-react';
 import { Magnetic } from './Magnetic';
 
 const rooms: Room[] = [
   {
     id: '1bhk',
-    title: 'The Manor House',
+    title: 'The Farm House',
     type: 'Entire House',
     capacity: '4 Guests',
     price: 'Seasonal',
-    description: 'A full 1 BHK residence designed for families. Features a spacious hall, full kitchen with appliances, private kettle, and sweeping garden views. Perfect for those who want the comfort of a home in the wild.',
-    amenities: ['King Bed', 'Kitchen', 'WiFi', 'Private Entrance', 'TV', 'Kettle', 'Living Area'],
-    image: 'https://images.unsplash.com/photo-1542718610-a1d656d1884c?q=80&w=2070&auto=format&fit=crop'
+    description: 'A traditional 1 BHK residence with a sloping terracotta roof. Features a dedicated kitchen with black granite counters, gas stove, and dining area. The living room opens up to the farm breeze, perfect for families.',
+    amenities: ['King Bed + Extra Beds', 'Full Kitchen', 'Gas Stove', 'Living Hall', 'Dining Area', 'Garden View'],
+    image: 'https://images.unsplash.com/photo-1512918760532-3edbedaa97e5?q=80&w=2067&auto=format&fit=crop'
   },
   {
     id: 'suite1',
-    title: 'Garden Suite I',
+    title: 'Areca Suite I',
     type: 'Private Suite',
     capacity: '2 Guests',
     price: 'Seasonal',
-    description: 'An intimate space for couples. Attached modern bathroom, premium linens, and direct access to the Areca farm. The morning sun hits this room first.',
-    amenities: ['Queen Bed', 'Attached Bath', 'WiFi', 'Garden View', 'Private Sit-out'],
-    image: 'https://images.unsplash.com/photo-1590490360182-137d62341a1d?q=80&w=2074&auto=format&fit=crop'
+    description: 'Nestled under a high wooden ceiling with Mangalore tiles, this room stays cool naturally. Features a modern bathroom with black tile accents and a geyser for hot showers after a misty morning walk.',
+    amenities: ['Queen Bed', 'Terracotta Roof', 'Geyser', 'Modern Bath', 'Private Entrance'],
+    image: 'https://images.unsplash.com/photo-1598928636135-d146006ff4be?q=80&w=2070&auto=format&fit=crop'
   },
   {
     id: 'suite2',
-    title: 'Garden Suite II',
+    title: 'Areca Suite II',
     type: 'Private Suite',
     capacity: '2 Guests',
     price: 'Seasonal',
-    description: 'Twin to Suite I, offering seclusion and peace. Perfect for solo travelers or friends seeking a quiet getaway. Features a dedicated work desk for digital nomads.',
-    amenities: ['Queen Bed', 'Attached Bath', 'WiFi', 'Work Desk', 'Coffee Maker'],
-    image: 'https://images.unsplash.com/photo-1512918760532-3edbedaa97e5?q=80&w=2067&auto=format&fit=crop'
+    description: 'A mirror to Suite I, offering solitude and silence. The window bars frame the lush green Areca palms outside. Includes all modern amenities wrapped in a rustic shell.',
+    amenities: ['Queen Bed', 'Work Desk', 'WiFi', 'Hot Water', 'Farm View'],
+    image: 'https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=2073&auto=format&fit=crop'
   }
 ];
 
@@ -49,7 +49,6 @@ export const Rooms: React.FC<RoomsProps> = ({ onBookRoom }) => {
   });
   const [selectedRoom, setSelectedRoom] = useState<Room | null>(null);
 
-  // Map vertical scroll to horizontal movement
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-65%"]);
 
   return (
@@ -57,25 +56,37 @@ export const Rooms: React.FC<RoomsProps> = ({ onBookRoom }) => {
     <section id="rooms" ref={targetRef} className="relative h-[300vh] bg-stone-900">
       <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
         
+        {/* Standardized Header */}
         <div className="absolute top-12 left-6 md:left-24 z-10 pointer-events-none">
-            <h2 className="text-6xl md:text-8xl font-serif text-stone-800/30 uppercase tracking-tighter">
-                Sanctuaries
-            </h2>
+            <motion.span 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                className="text-emerald-500 text-[10px] tracking-[0.3em] uppercase block mb-4 font-bold"
+            >
+                SANCTUARIES
+            </motion.span>
+            <motion.h2 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                className="text-4xl md:text-6xl font-serif text-stone-200"
+            >
+                Rest in Nature
+            </motion.h2>
         </div>
 
-        <motion.div style={{ x }} className="flex gap-12 px-6 md:px-24 items-center">
+        <motion.div style={{ x }} className="flex gap-12 px-6 md:px-24 items-center pt-24">
           {/* Intro Card */}
-          <div className="flex-shrink-0 w-[80vw] md:w-[30vw] h-[60vh] flex flex-col justify-center gap-8 pl-4">
-            <h3 className="text-4xl font-serif text-stone-200">Rest in Nature's Lap</h3>
-            <p className="text-stone-400 leading-relaxed">
-                Our accommodations are designed to blur the lines between indoors and outdoors. 
-                Featuring modern amenities wrapped in rustic charm.
+          <div className="flex-shrink-0 w-[80vw] md:w-[25vw] h-[60vh] flex flex-col justify-center gap-8 pl-4 border-l border-stone-800">
+            <p className="text-stone-400 leading-relaxed text-lg font-light">
+                Our accommodations blend traditional Kodagu architecture—terracotta roofs and high ceilings—with modern comforts like high-speed WiFi and hot water geysers.
             </p>
             <div className="flex gap-4 flex-wrap">
-                <span className="px-4 py-2 border border-stone-700 rounded-full text-xs text-stone-400 flex items-center gap-2"><Wifi size={12}/> WiFi Enabled</span>
-                <span className="px-4 py-2 border border-stone-700 rounded-full text-xs text-stone-400 flex items-center gap-2"><Sparkles size={12}/> 24/7 Power</span>
+                <span className="px-4 py-2 border border-stone-700 rounded-full text-xs text-stone-400 flex items-center gap-2"><Wind size={12}/> Natural Cooling</span>
+                <span className="px-4 py-2 border border-stone-700 rounded-full text-xs text-stone-400 flex items-center gap-2"><Flame size={12}/> Hot Water</span>
             </div>
-            <p className="text-xs text-stone-600 uppercase tracking-widest mt-8">→ Drag to explore</p>
+            <p className="text-xs text-stone-600 uppercase tracking-widest mt-8 flex items-center gap-2">
+                <span className="w-8 h-1px bg-stone-600"></span> Drag to explore
+            </p>
           </div>
 
           {/* Room Cards */}
@@ -199,13 +210,13 @@ const RoomCard: React.FC<{ room: Room; onSelect: () => void }> = ({ room, onSele
             <motion.div 
                 layoutId={`room-container-${room.id}`}
                 onClick={onSelect}
-                className="flex-shrink-0 w-[85vw] md:w-[45vw] h-[60vh] relative group cursor-pointer overflow-hidden bg-stone-800 rounded-xl shadow-lg"
+                className="flex-shrink-0 w-[85vw] md:w-[45vw] h-[60vh] relative group cursor-pointer overflow-hidden bg-stone-800 rounded-xl shadow-lg border border-stone-800"
             >
                 <motion.img 
                     layoutId={`room-image-${room.id}`}
                     src={room.image} 
                     alt={room.title} 
-                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-70 group-hover:opacity-100"
+                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-80 group-hover:opacity-100"
                 />
                 <div className="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-stone-950 via-stone-950/80 to-transparent">
                     <div className="flex justify-between items-end">
