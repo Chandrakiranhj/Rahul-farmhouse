@@ -1,0 +1,7 @@
+{
+  "name": "SR Retreat - Digital Sanctuary",
+  "description": "A luxury, award-winning web experience for SR Retreat in Mysuru/Coorg. Features cinematic visuals, AI concierge, and immersive interactions.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
