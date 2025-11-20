@@ -16,7 +16,7 @@ export interface Room {
   price: string;
   description: string;
   amenities: string[];
-  image: string;
+  images: string[];
 }
 
 export interface ChatMessage {

@@ -56,7 +56,7 @@ export const Navigation: React.FC<NavigationProps> = ({ isZenMode, toggleZenMode
                     onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
                     className="relative group py-2"
                 >
-                    <span className="font-display text-xl md:text-2xl tracking-[0.15em] text-stone-100 whitespace-nowrap font-medium">
+                    <span className="font-display text-xl md:text-2xl tracking-[0.25em] text-stone-100 whitespace-nowrap font-medium flex items-center gap-2">
                         SR RETREAT
                     </span>
                     <span className="absolute bottom-0 left-1/2 w-0 h-[1px] bg-emerald-500 group-hover:w-full group-hover:left-0 transition-all duration-500"></span>
@@ -70,7 +70,7 @@ export const Navigation: React.FC<NavigationProps> = ({ isZenMode, toggleZenMode
               <Magnetic key={link.name}>
                 <button
                   onClick={() => scrollToSection(link.id)}
-                  className="text-[11px] uppercase tracking-[0.25em] text-stone-400 hover:text-white transition-colors py-2 px-2"
+                  className="text-[10px] uppercase tracking-[0.25em] text-stone-400 hover:text-white transition-colors py-2 px-2"
                 >
                   {link.name}
                 </button>
